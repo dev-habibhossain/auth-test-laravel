@@ -19,6 +19,11 @@ class CustomAuthController extends Controller
 
         $user = CustomModel::where('email', $email)->where('password', $password)->where('is_active', true)->first();
 
+        session([
+            'custom_user_id' => $user ? $user->id : null,
+            'custom_user_email' => $user ? $user->email : null,
+        ]);
+
         if ($user) {
             return redirect()->route('dashboard')->with('success', 'Login successful!');
         } else {
