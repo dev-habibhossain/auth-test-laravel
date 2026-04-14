@@ -9,5 +9,6 @@
 <body>
   <h1>Dashboard</h1>
   <p>Welcome to your dashboard!</p>
+  <a href="{{ route('logout') }}">Logout</a>
 </body>
 </html>

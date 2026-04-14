@@ -9,7 +9,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');
+})->middleware('custom.auth')->name('dashboard');
 
 Route::get('/login', [CustomAuthController::class, 'showLoginForm'])->name('login');
 

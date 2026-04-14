@@ -31,4 +31,9 @@ class CustomAuthController extends Controller
         }
 
     }
+    public function logout(Request $request)
+    {
+        $request->session()->forget(['custom_user_id', 'custom_user_email']);
+        return redirect()->route('login')->with('success', 'Logged out successfully!');
+    }
 }
